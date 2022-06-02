@@ -1,0 +1,23 @@
+public class StudentCourse {
+    
+    public static void priorEducationLevel(){
+        List<String> randomValue = new List<String>{'Below Tertiary', 'Tertiary Graduate', 'Tertiary Post-Graduate'};
+        Integer randomValueSize = randomValue.size() -1;
+        Integer randomNumber = Integer.valueof(Math.random() * randomValueSize);
+        	String randomString = randomValue[randomNumber];
+        	system.debug('random String is'+randomString);
+        
+        if(randomString == '***Below Tertiary'){
+           System.debug('Advanced');      
+        }
+        else if (randomString == '***Tertiary Graduate'){
+           System.debug('Ultimate'); 
+    	}
+		else if (randomString == '***Tertiary Post-Graduate'){
+           System.debug('Extra');
+   		}
+        else{
+            System.debug('Not Applicable');
+        }
+    }
+}
