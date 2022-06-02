@@ -5,15 +5,15 @@ public class StudentCourse {
         Integer randomValueSize = randomValue.size() -1;
         Integer randomNumber = Integer.valueof(Math.random() * randomValueSize);
         	String priorEducation = randomValue[randomNumber];
-        	system.debug('random String is'+randomString);
+        	system.debug('Prior Education is***'+priorEducation);
         
-        if(priorEducation == '***Below Tertiary'){
-           System.debug('Advanced');      
+        if(priorEducation == 'Below Tertiary'){
+           System.debug('Enrolment Progression Status is upgraded to Advanced');      
         }
-        else if (priorEducation == '***Tertiary Graduate'){
+        else if (priorEducation == 'Tertiary Graduate'){
            System.debug('Ultimate'); 
     	}
-		else if (priorEducation == '***Tertiary Post-Graduate'){
+		else if (priorEducation == 'Tertiary Post-Graduate'){
            System.debug('Extra');
    		}
         else{
