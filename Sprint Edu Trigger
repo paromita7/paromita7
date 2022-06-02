@@ -1,0 +1,32 @@
+trigger priorEducation on Contact (before insert, before update, after insert, after update){
+if(trigger.isBefore){
+    if (trigger.isInsert){
+       for(Contact student:Trigger.New) 
+       if (student.Prior_Qualification__c == 'Below Tertiary'){
+           student.Enrolment_Progression__c = 'Advanced Sprint Training';         
+  }
+        for(Contact student:Trigger.New)
+        if (student.Prior_Qualification__c == 'Tertiary Graduate'){
+        	student.Enrolment_Progression__c = 'Ultimate Sprint Training';
+   }
+        for(Contact student:Trigger.New)
+        if (student.Prior_Qualification__c == 'Tertiary Post-Graduate'){
+        	student.Enrolment_Progression__c = 'Extra Sprint Training';
+	}            
+  }
+    if(trigger.isUpdate){ 
+    for(Contact student:Trigger.New) 
+    if (student.Prior_Qualification__c == 'Below Tertiary'){ 
+    student.Enrolment_Progression__c = 'Advanced Sprint Training';
+  } 
+    for(Contact student:Trigger.New) 
+    if (student.Prior_Qualification__c == 'Tertiary Graduate'){ 
+    student.Enrolment_Progression__c = 'Ultimate Sprint Training'; 
+  }
+    for(Contact student:Trigger.New) 
+    if (student.Prior_Qualification__c == 'Tertiary Post-Graduate'){ 
+    student.Enrolment_Progression__c = 'Extra Sprint Training';
+  }
+  } 
+  } 
+  }
