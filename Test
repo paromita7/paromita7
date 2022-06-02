@@ -1,0 +1,42 @@
+@isTest
+public class UpdateStudentFieldTest {
+    
+    public static testmethod void studentEducationTest(){
+        Test.startTest();
+        
+        Contact testContact1 = new Contact();
+        testContact1.FirstName = 'TestStudent mytest1';
+        testContact1.LastName = 'abs';
+        testContact1.Prior_Qualification__c = 'Below Tertiary';
+        testContact1.Enrolment_Progression__c ='Extra';
+        insert testContact1;
+        
+        Contact testContact2 = new Contact();
+        testContact2.FirstName = 'TestStudent mytest2';
+        testContact2.LastName = 'absed';
+        testContact2.Prior_Qualification__c = 'Tertiary Graduate';
+        testContact2.Enrolment_Progression__c ='Ultimate';
+        insert testContact2;
+        
+        Contact testContact3 = new Contact();
+        testContact3.FirstName = 'TestStudent mytest3';
+        testContact3.LastName = 'absa';
+        testContact3.Prior_Qualification__c = 'Tertiary Post-Graduate';
+        testContact3.Enrolment_Progression__c ='Advanced';
+        insert testContact3;
+        
+        List<Contact> output = UpdateStudentField.studentEducation();
+        
+        List<Contact> result = [SELECT Id, Enrolment_Progression__c, Prior_Qualification__c FROM Contact];
+        for(Contact stud:result){
+            if((stud.Prior_Qualification__c=='Below Tertiary')&&(stud.Enrolment_Progression__c == 'Extra')){
+                system.debug('Working');
+                Test.stopTest();
+            }
+        }       
+               
+        
+    }
+    
+
+}
