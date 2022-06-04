@@ -1,0 +1,35 @@
+public class EduUpdate1 {
+    
+    public static void studentEducation(){
+        
+        List<Contact> studentList = [SELECT Id, Prior_Qualification__c, Enrolment_Progression__c from Contact where Enrolment_Progression__c!= Null];     
+        
+        List<Contact>updatedstudentList = new List<Contact>();    
+        
+        for (Contact student:studentList){
+            List<String>randomQualification = new List<String>{'Below Tertiary', 'Tertiary Graduate', 'Tertiary Post-Graduate'};
+            Integer randomValue = randomQualification.size() -1;
+        	Integer numberGenerated = Integer.valueof((Math.random()* randomValue));
+        	String randomQualificationAssigned = randomQualification[numberGenerated];
+            
+            student.Prior_Qualification__c = randomQualificationAssigned;
+
+            if (student.Prior_Qualification__c == 'Below Tertiary'){
+                student.Enrolment_Progression__c = 'Advanced';
+                updatedstudentList.add(student);
+            }               
+            if (student.Prior_Qualification__c == 'Tertiary Graduate'){
+                student.Enrolment_Progression__c = 'Ultimate';
+                updatedstudentList.add(student);
+            }
+            if (student.Prior_Qualification__c == 'Tertiary Post-Graduate'){
+                student.Enrolment_Progression__c = 'Extra';
+                updatedstudentList.add(student);
+           
+            update updatedstudentList;
+            
+            }   
+        }
+    
+    }
+}
