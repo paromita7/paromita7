@@ -1,0 +1,30 @@
+public class Mission5 {
+
+    public static void numberLoop(){
+        //Created a list called "input" and added the numbers 12,20,30,17
+        List<Integer> input = new List<Integer>{12,20,30,17};
+            
+       	System.debug('input***'+input);
+        
+        for (Integer i:input){
+            //if input is a multiple of both 3 & 5 print DingDong
+            //math.mod: if i is divided by 3 the remainder is 0
+            if (math.mod(i,3) == 0 && math.mod(i,5) == 0){
+                System.debug(i + '****DingDong');
+            }
+            // if input is a multiple of 3 print Ding 
+            else if(math.mod (i,3) == 0){
+             System.debug(i+'****Ding');    
+            } 
+            // if input is a multiple of 5 print Dong
+            else if (math.mod(i,5) == 0){
+                System.debug(i+'****Dong');
+            }
+           //if the input is neither a multiple of 3 or 5
+            else{
+                System.debug(i+'****not a multiple of 3 or 5');
+            }          
+        }        
+    }
+   
+}
